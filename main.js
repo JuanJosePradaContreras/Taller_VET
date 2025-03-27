@@ -36,3 +36,15 @@ function listarMascotas() {
   alert(lista);
 }
 
+function buscarMascota() {
+    let nombre = prompt("Ingrese el nombre de la mascota a buscar:");
+    setTimeout(() => {
+      let mascota = mascotas.find(m => m.nombre.toLowerCase() === nombre.toLowerCase());
+      if (mascota) {
+        alert(`Mascota encontrada:\nNombre: ${mascota.nombre}\nEspecie: ${mascota.especie}\nEdad: ${mascota.edad} años\nPeso: ${mascota.peso} kg\nEstado de salud: ${mascota.estadoSalud}`);
+      } else {
+        alert("Mascota no encontrada.");
+      }
+    }, 2000);
+  }
+  
