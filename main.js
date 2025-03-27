@@ -16,6 +16,23 @@ class Mascota {
     let edad = prompt("Ingrese la edad de la mascota:");
     let peso = prompt("Ingrese el peso de la mascota:");
     let estadoSalud = prompt("Ingrese el estado de salud (Sano, Enfermo, En tratamiento):");
-  }
-
   
+
+  setTimeout(() => {
+    mascotas.push(new Mascota(nombre, especie, edad, peso, estadoSalud));
+    alert("Mascota registrada exitosamente.");
+  }, 2000);
+}
+
+function listarMascotas() {
+  if (mascotas.length === 0) {
+    alert("No hay mascotas registradas.");
+    return;
+  }
+  let lista = "Lista de mascotas:\n";
+  mascotas.forEach((mascota, index) => {
+    lista += `${index + 1}. ${mascota.nombre} - ${mascota.especie} - ${mascota.edad} años - ${mascota.peso}kg - ${mascota.estadoSalud}\n`;
+  });
+  alert(lista);
+}
+
