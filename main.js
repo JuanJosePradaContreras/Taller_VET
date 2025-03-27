@@ -17,3 +17,5 @@ class Mascota {
     let peso = prompt("Ingrese el peso de la mascota:");
     let estadoSalud = prompt("Ingrese el estado de salud (Sano, Enfermo, En tratamiento):");
   }
+
+  
