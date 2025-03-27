@@ -48,3 +48,60 @@ function buscarMascota() {
     }, 2000);
   }
   
+  function actualizarEstadoSalud() {
+    let nombre = prompt("Ingrese el nombre de la mascota para actualizar su estado de salud:");
+    setTimeout(() => {
+      let mascota = mascotas.find(m => m.nombre.toLowerCase() === nombre.toLowerCase());
+      if (mascota) {
+        let nuevoEstado = prompt("Ingrese el nuevo estado de salud (Sano, Enfermo, En tratamiento):");
+        mascota.estadoSalud = nuevoEstado;
+        alert("Estado de salud actualizado correctamente.");
+      } else {
+        alert("Mascota no encontrada.");
+      }
+    }, 3000);
+  }
+  
+  function eliminarMascota() {
+    let nombre = prompt("Ingrese el nombre de la mascota a eliminar:");
+    let index = mascotas.findIndex(m => m.nombre.toLowerCase() === nombre.toLowerCase());
+    if (index !== -1) {
+      mascotas.splice(index, 1);
+      alert("Mascota eliminada correctamente.");
+    } else {
+      alert("Mascota no encontrada.");
+    }
+  }
+  
+  function menu() {
+    let opcion;
+    do {
+      opcion = prompt(
+        "Menú:\n1. Registrar mascota\n2. Listar mascotas\n3. Buscar mascota\n4. Actualizar estado de salud\n5. Eliminar mascota\n6. Salir"
+      );
+      switch (opcion) {
+        case "1":
+          registrarMascota();
+          break;
+        case "2":
+          listarMascotas();
+          break;
+        case "3":
+          buscarMascota();
+          break;
+        case "4":
+          actualizarEstadoSalud();
+          break;
+        case "5":
+          eliminarMascota();
+          break;
+        case "6":
+          alert("Saliendo del programa.");
+          break;
+        default:
+          alert("Opción no válida, intente de nuevo.");
+      }
+    } while (opcion !== "6");
+  }
+  
+  menu();
